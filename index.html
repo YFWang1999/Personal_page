@@ -3,250 +3,350 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Yifan Wang — Academic Homepage</title>
-  <meta name="description" content="Academic homepage of Your Name." />
+  <title>Yifan Wang</title>
+  <meta name="description" content="Yifan Wang — PhD student at SMILE Lab, Northeastern University. Reinforcement learning for generative models, video diffusion, model efficiency." />
+  <meta property="og:title" content="Yifan Wang" />
+  <meta property="og:description" content="PhD student at SMILE Lab, Northeastern University. RL for generative models and video diffusion." />
+  <meta property="og:image" content="./assets/Profile.jpeg" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232f5fd0'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='32' fill='white' text-anchor='middle'%3EYW%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root{
-      --fg:#111; --muted:#666; --bg:#fff; --link:#0b57d0; --border:#e6e6e6;
-      --max: 860px;
+      --bg:#fcfcfa; --surface:#ffffff; --fg:#1a1a1a; --fg-2:#4a4a4a; --muted:#7a7a74;
+      --border:#e7e5df; --border-strong:#d6d3cb;
+      --accent:#2f5fd0; --accent-soft:#eaf0fc; --accent-fg:#234aa6;
+      --note-bg:#fff7e0; --note-border:#f2d98a; --note-fg:#6b4d00;
+      --shadow:0 1px 2px rgba(0,0,0,.04), 0 6px 20px -8px rgba(0,0,0,.12);
+      --serif:"Newsreader", Georgia, "Times New Roman", serif;
+      --sans:"Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --max:780px;
     }
     @media (prefers-color-scheme: dark){
-      :root{--fg:#eee;--muted:#aaa;--bg:#0b0b0b;--link:#7aa2ff;--border:#222;}
+      :root:not([data-theme="light"]){
+        --bg:#111214; --surface:#17181b; --fg:#ececea; --fg-2:#c4c4c0; --muted:#8e8e89;
+        --border:#2a2b2f; --border-strong:#3a3b40;
+        --accent:#8fb0ff; --accent-soft:#1c2740; --accent-fg:#a9c2ff;
+        --note-bg:#2a2410; --note-border:#5c4a14; --note-fg:#f0d78a;
+        --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 20px -8px rgba(0,0,0,.6);
+      }
     }
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;}
-    a{color:var(--link);text-decoration:none}
+    :root[data-theme="dark"]{
+      --bg:#111214; --surface:#17181b; --fg:#ececea; --fg-2:#c4c4c0; --muted:#8e8e89;
+      --border:#2a2b2f; --border-strong:#3a3b40;
+      --accent:#8fb0ff; --accent-soft:#1c2740; --accent-fg:#a9c2ff;
+      --note-bg:#2a2410; --note-border:#5c4a14; --note-fg:#f0d78a;
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 20px -8px rgba(0,0,0,.6);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    html,body{margin:0;padding:0}
+    body{background:var(--bg);color:var(--fg);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    a{color:var(--accent);text-decoration:none;text-underline-offset:3px}
     a:hover{text-decoration:underline}
-    .wrap{max-width:var(--max);margin:0 auto;padding:28px 18px 60px}
-    header{display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-    .name{font-size:28px;font-weight:700;margin:0}
-    .tag{margin:4px 0 0;color:var(--muted)}
-    nav{display:flex;gap:14px;flex-wrap:wrap}
-    nav a{padding:6px 10px;border:1px solid var(--border);border-radius:10px}
-    section{margin-top:34px;padding-top:10px;border-top:1px solid var(--border)}
-    h2{font-size:18px;margin:0 0 10px}
-    .grid{display:grid;grid-template-columns:1fr;gap:10px}
-    .item{padding:12px 14px;border:1px solid var(--border);border-radius:14px}
-    .item .meta{color:var(--muted);font-size:14px;margin-top:4px}
-    ul{margin:8px 0 0 18px}
-    .pill{display:inline-block;padding:2px 10px;border:1px solid var(--border);border-radius:999px;margin:4px 6px 0 0;color:var(--muted);font-size:13px}
-    .availability{display:inline-block;margin-top:10px;padding:5px 12px;border-radius:999px;background:#fff3bf;color:#6f4e00;border:1px solid #ffd43b;font-size:14px;font-weight:600}
-    footer{margin-top:40px;color:var(--muted);font-size:13px}
-    .profile {
-    display: flex;
-    gap: 24px;
-    align-items: center;
-    flex-wrap: wrap;
+    b,strong{font-weight:600}
+    .wrap{max-width:var(--max);margin:0 auto;padding:40px 20px 72px}
+
+    /* ---------- header ---------- */
+    header{display:flex;gap:28px;align-items:center;margin-bottom:12px}
+    .avatar{flex:none;width:132px;height:132px;border-radius:50%;object-fit:cover;object-position:50% 40%;border:3px solid var(--surface);box-shadow:var(--shadow)}
+    .name{font-family:var(--serif);font-weight:500;font-size:40px;line-height:1.1;letter-spacing:-.01em;margin:0}
+    .role{margin:8px 0 0;color:var(--fg-2);font-size:16px}
+    .role a{color:inherit;border-bottom:1px solid var(--border-strong)}
+    .role a:hover{color:var(--accent);border-color:var(--accent);text-decoration:none}
+    .links{display:flex;flex-wrap:wrap;gap:6px 14px;margin:14px 0 0;padding:0;list-style:none;font-size:14px}
+    .links a{display:inline-flex;align-items:center;gap:6px;color:var(--fg-2);font-weight:500}
+    .links a:hover{color:var(--accent);text-decoration:none}
+    .links svg{width:15px;height:15px;fill:currentColor;opacity:.8}
+
+    nav.top{display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin:30px 0 8px;padding:6px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);font-size:14px}
+    nav.top a{color:var(--fg-2);padding:6px 10px;border-radius:8px;font-weight:500}
+    nav.top a:hover{color:var(--fg);background:var(--accent-soft);text-decoration:none}
+    nav.top .spacer{flex:1}
+    .theme{flex:none;appearance:none;border:1px solid var(--border);background:var(--surface);color:var(--muted);border-radius:8px;width:32px;height:32px;display:inline-grid;place-items:center;cursor:pointer}
+    .theme:hover{color:var(--fg);border-color:var(--border-strong)}
+    .theme svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .theme .moon{display:none}
+    :root[data-theme="dark"] .theme .sun{display:none}
+    :root[data-theme="dark"] .theme .moon{display:block}
+    @media (prefers-color-scheme: dark){
+      :root:not([data-theme="light"]) .theme .sun{display:none}
+      :root:not([data-theme="light"]) .theme .moon{display:block}
     }
 
-    .avatar {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 1px solid var(--border);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
+    /* ---------- sections ---------- */
+    section{margin-top:44px;scroll-margin-top:24px}
+    h2{font-family:var(--serif);font-weight:500;font-size:26px;letter-spacing:-.01em;margin:0 0 16px;display:flex;align-items:baseline;gap:12px}
+    h2 .count{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--muted)}
+    p{margin:0 0 12px}
+    .lead{font-size:17px;line-height:1.7;color:var(--fg)}
+    .note{display:flex;gap:10px;align-items:flex-start;margin-top:16px;padding:12px 14px;border-radius:12px;background:var(--note-bg);border:1px solid var(--note-border);color:var(--note-fg);font-size:14.5px;line-height:1.5}
+    .note svg{flex:none;width:18px;height:18px;margin-top:2px;fill:currentColor}
+    .interests{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+    .chip{font-size:13px;padding:4px 11px;border-radius:999px;border:1px solid var(--border);color:var(--fg-2);background:var(--surface)}
 
-    @media (max-width: 700px){
-    .profile {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .avatar {
-        width: 130px;
-        height: 130px;
-    }
-    }
+    /* news */
+    .news{list-style:none;margin:0;padding:0}
+    .news li{display:grid;grid-template-columns:86px 1fr;gap:14px;padding:7px 0;border-bottom:1px dashed var(--border);font-size:15px}
+    .news li:last-child{border-bottom:0}
+    .news time{color:var(--muted);font-variant-numeric:tabular-nums;font-size:13.5px;padding-top:2px}
+    .news .more{display:none}
+    .news.open .more{display:grid}
+    .toggle{margin-top:10px;font-size:13.5px;color:var(--muted);background:none;border:0;padding:0;cursor:pointer;font-family:inherit}
+    .toggle:hover{color:var(--accent)}
 
+    /* publications */
+    .pubs{display:grid;gap:12px}
+    .pub{display:grid;grid-template-columns:1fr;gap:4px;padding:16px 18px;border:1px solid var(--border);border-radius:14px;background:var(--surface);transition:border-color .15s, box-shadow .15s}
+    .pub:hover{border-color:var(--border-strong);box-shadow:var(--shadow)}
+    .pub .venue-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:12.5px;color:var(--muted)}
+    .badge{display:inline-block;padding:2px 9px;border-radius:6px;font-weight:600;font-size:12px;letter-spacing:.01em;background:var(--accent-soft);color:var(--accent-fg)}
+    .badge.journal{background:transparent;border:1px solid var(--border-strong);color:var(--fg-2)}
+    .badge.preprint{background:transparent;border:1px dashed var(--border-strong);color:var(--muted)}
+    .pub .title{font-family:var(--serif);font-size:19px;font-weight:500;line-height:1.3;margin-top:2px}
+    .pub .title a{color:var(--fg)}
+    .pub .title a:hover{color:var(--accent);text-decoration:none}
+    .pub .authors{font-size:14.5px;color:var(--fg-2)}
+    .pub .authors .me{font-weight:600;color:var(--fg)}
+    .pub .actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+    .pub .actions a,.pub .actions span{font-size:12.5px;font-weight:500;padding:3px 10px;border-radius:999px;border:1px solid var(--border);color:var(--fg-2);background:var(--bg)}
+    .pub .actions a:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
+    .pub .actions span{color:var(--muted);border-style:dashed}
+
+    /* experience */
+    .timeline{list-style:none;margin:0;padding:0;border-left:2px solid var(--border);margin-left:6px}
+    .timeline li{position:relative;padding:0 0 22px 22px}
+    .timeline li:last-child{padding-bottom:0}
+    .timeline li::before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+    .timeline .org{font-weight:600}
+    .timeline .org span{font-weight:400;color:var(--fg-2)}
+    .timeline .when{font-size:13.5px;color:var(--muted);margin:2px 0 6px}
+    .timeline p{font-size:15px;color:var(--fg-2);margin:0}
+
+    footer{margin-top:64px;padding-top:18px;border-top:1px solid var(--border);color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+    @media (max-width:640px){
+      .wrap{padding:28px 16px 56px}
+      header{flex-direction:column;align-items:flex-start;gap:18px}
+      .avatar{width:112px;height:112px}
+      .name{font-size:34px}
+      .news li{grid-template-columns:1fr;gap:2px}
+      .pub .title{font-size:18px}
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
+
     <header>
-    <div class="profile">
-        <img src="./assets/Profile.jpeg" alt="Your Name" class="avatar">
-
-        <div>
+      <img src="./assets/Profile.jpeg" alt="Portrait of Yifan Wang" class="avatar" width="132" height="132" />
+      <div>
         <h1 class="name">Yifan Wang</h1>
-        <div class="tag">Phd Student · Smile Lab @ Northeastern University</div>
-        <div class="tag">
-            Email: <a href="mailto:wang.yifan25@northeastern.edu">wang.yifan25@northeastern.edu</a>
-            · <a href="https://scholar.google.com/citations?user=bWlFdk0AAAAJ&hl=zh-CN" target="_blank">Google Scholar</a>
-            · <a href="https://github.com/YFWang1999" target="_blank">GitHub</a>
-            · <a href="./assets/Resume.pdf" target="_blank">CV</a>
-        </div>
-        </div>
-    </div>
-
-    <nav>
-        <a href="#about">About</a>
-        <a href="#news">News</a>
-        <a href="#publications">Publications</a>
-        <a href="#experience">Experience</a>
-        <!-- <a href="#projects">Projects</a>
-        <a href="#teaching">Teaching</a> -->
-    </nav>
+        <p class="role">PhD student · <a href="https://web.northeastern.edu/smilelab/" target="_blank" rel="noopener">SMILE Lab</a>, <a href="https://coe.northeastern.edu/" target="_blank" rel="noopener">Northeastern University</a></p>
+        <ul class="links">
+          <li><a href="mailto:wang.yifan25@northeastern.edu"><svg viewBox="0 0 24 24"><path d="M2 5.5A2.5 2.5 0 0 1 4.5 3h15A2.5 2.5 0 0 1 22 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 18.5v-13Zm2.3-.5 7.7 6.2L19.7 5H4.3ZM20 7.4l-8 6.4-8-6.4v11.1c0 .3.2.5.5.5h15c.3 0 .5-.2.5-.5V7.4Z"/></svg>Email</a></li>
+          <li><a href="https://scholar.google.com/citations?user=bWlFdk0AAAAJ" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2 1 8.5l11 6.5 9-5.3V17h2V8.5L12 2Zm-6 11.9V17c0 2.2 2.7 4 6 4s6-1.8 6-4v-3.1l-6 3.6-6-3.6Z"/></svg>Google Scholar</a></li>
+          <li><a href="https://github.com/YFWang1999" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>GitHub</a></li>
+          <li><a href="./assets/Resume.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1.5V9h5.5L13 3.5ZM8 12h8v1.6H8V12Zm0 3.5h8v1.6H8v-1.6Z"/></svg>CV</a></li>
+        </ul>
+      </div>
     </header>
 
+    <nav class="top" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#news">News</a>
+      <a href="#publications">Publications</a>
+      <a href="#experience">Experience</a>
+      <span class="spacer"></span>
+      <button class="theme" id="theme" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+    </nav>
 
     <section id="about">
       <h2>About</h2>
-      <p>
-        
-
-        I am a PhD candidate at <a href="https://web.northeastern.edu/smilelab/">SMILE Lab</a> @ <a href="https://coe.northeastern.edu/">Northeastern University</a>, supervised by <a href="http://www1.ece.neu.edu/~yunfu/">Prof. Yun Raymond Fu</a> . 
-        Before that, I obtained my Bachelor's degree in Mathematics and applied mathematics from Shandong university, Jinan, Shandong, China.
-        Currently, I'm also a research intern at <a href="https://research.snap.com/index.html">Snap Inc.</a> where I'm working closely with <a href="https://scholar.google.com/citations?user=XUj8koUAAAAJ&hl=en">Yanyu Li</a>, <a href="https://research.snap.com/team_members/anil-kag.html">Anil Kag</a>, <a href="https://guochengqian.github.io/">Gorden Qian</a> and <a href="https://stulyakov.com/">Sergey Tulyakov</a>,
-        My research currently centers on the RL of the generative models. Also, I have experience of model efficiency and MLLM agent. Feel free to contact for anything! σ`∀´)σ
+      <p class="lead">
+        I am a PhD student at the <a href="https://web.northeastern.edu/smilelab/" target="_blank" rel="noopener">SMILE Lab</a> at
+        <a href="https://coe.northeastern.edu/" target="_blank" rel="noopener">Northeastern University</a>, advised by
+        <a href="http://www1.ece.neu.edu/~yunfu/" target="_blank" rel="noopener">Prof. Yun Raymond Fu</a>.
+        Before that, I received my B.S. in Mathematics and Applied Mathematics from Shandong University.
       </p>
-      <div class="availability">I'm actively looking for research internship opportunities and collaborations for Spring/Summer 2027!</div>
-        
+      <p class="lead">
+        I am currently a research intern at <a href="https://research.snap.com/" target="_blank" rel="noopener">Snap Inc.</a>, working closely with
+        <a href="https://scholar.google.com/citations?user=XUj8koUAAAAJ" target="_blank" rel="noopener">Yanyu Li</a>,
+        <a href="https://research.snap.com/team_members/anil-kag.html" target="_blank" rel="noopener">Anil Kag</a>,
+        <a href="https://guochengqian.github.io/" target="_blank" rel="noopener">Gordon Qian</a> and
+        <a href="https://stulyakov.com/" target="_blank" rel="noopener">Sergey Tulyakov</a>.
+        My research centers on reinforcement learning for generative models, especially video diffusion. I also have experience in
+        model efficiency and multimodal LLM agents. Feel free to reach out for anything! σ`∀´)σ
+      </p>
+      <div class="interests" aria-label="Research interests">
+        <span class="chip">RL for generative models</span>
+        <span class="chip">Video diffusion</span>
+        <span class="chip">Reward fine-tuning</span>
+        <span class="chip">Model efficiency</span>
+        <span class="chip">Multimodal LLM agents</span>
+      </div>
+      <div class="note">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 5a1.3 1.3 0 1 1 0 2.6A1.3 1.3 0 0 1 12 7Zm1.2 10h-2.4v-6h2.4v6Z"/></svg>
+        <span>I'm actively looking for research internship opportunities and collaborations for <b>Spring / Summer 2027</b>.</span>
+      </div>
     </section>
 
     <section id="news">
       <h2>News</h2>
-      <ul>
-        <li><b>Sep 2026</b> — One paper got accepted by NeurIPS2026!</li>
-        <li><b>Aug 2026</b> — One paper got accepted by ICDM2026!</li>
-        <li><b>Apr 2026</b> — One paper got accepted by ACL2026!</li>
-        <li><b>Feb 2026</b> — One paper got accepted by ICLR2026!</li>
-        <li><b>Jun 2025</b> — Begin my internship at Snap.</li>
-        <li><b>May 2024</b> — One paper got accepted by IJCV!</li>
-        <li><b>Jan 2024</b> — One paper got accepted by TCDS!</li>
-        <li><b>Sep 2023</b> — Begin my Phd life at NEU</li>
+      <ul class="news" id="newslist">
+        <li><time>Sep 2026</time><span>One paper accepted to <b>NeurIPS 2026</b>.</span></li>
+        <li><time>Aug 2026</time><span>One paper accepted to <b>ICDM 2026</b>.</span></li>
+        <li><time>Apr 2026</time><span>One paper accepted to <b>ACL 2026</b> (Findings).</span></li>
+        <li><time>Feb 2026</time><span>One paper accepted to <b>ICLR 2026</b>.</span></li>
+        <li><time>Jun 2025</time><span>Started my research internship at <b>Snap Inc.</b></span></li>
+        <li class="more"><time>May 2024</time><span>One paper accepted to <b>IJCV</b>.</span></li>
+        <li class="more"><time>Jan 2024</time><span>One paper accepted to <b>IEEE TCDS</b>.</span></li>
+        <li class="more"><time>Sep 2023</time><span>Started my PhD at Northeastern University.</span></li>
       </ul>
+      <button class="toggle" id="newstoggle" type="button">Show older news ↓</button>
     </section>
 
     <section id="publications">
-      <h2>Publications & Pre-prints</h2>
-      <div class="grid">
-        <div class="item">
-          <div><b>TVRL: Token-level Video Reinforcement Learning</b></div>
-          <div class="meta"><b>Yifan Wang</b>, Gordon Guocheng Qian, Yanyu Li, Anil Kag, Yun Fu</div>
-          <div><i>arXiv</i></div>
-          <div class="meta">
-            <a href="https://snap-research.github.io/diffusion-drf/" target="_blank" rel="noopener">Webpage</a> 
+      <h2>Publications <span class="count">most recent first</span></h2>
+      <div class="pubs">
+
+        <article class="pub">
+          <div class="venue-row"><span class="badge preprint">Preprint</span> arXiv · 2026</div>
+          <div class="title"><a href="https://arxiv.org/abs/2610.01973" target="_blank" rel="noopener">TVRL: Token-Level Video Reinforcement Learning</a></div>
+          <div class="authors"><span class="me">Yifan Wang</span>, Gordon Guocheng Qian, Yanyu Li, Anil Kag, Yun Fu</div>
+          <div class="actions">
+            <a href="https://arxiv.org/abs/2610.01973" target="_blank" rel="noopener">arXiv</a>
+            <a href="https://arxiv.org/pdf/2610.01973" target="_blank" rel="noopener">PDF</a>
           </div>
-        </div>
-        <div class="item">
-          <div><b>Diffusion-DRF: Free, Rich, and Differentiable Reward for Video Diffusion Fine-Tuning</b></div>
-          <div class="meta"><b>Yifan Wang</b>, Yanyu Li, Gordon Guocheng Qian, Sergey Tulyakov, Yun Fu, Anil Kag</div>
-          <div><i>NeurIPS 2026</i></div>
-          <div class="meta">
-            <a href="https://snap-research.github.io/diffusion-drf/" target="_blank" rel="noopener">Webpage</a> 
+        </article>
+
+        <article class="pub">
+          <div class="venue-row"><span class="badge">NeurIPS 2026</span></div>
+          <div class="title"><a href="https://arxiv.org/abs/2601.04153" target="_blank" rel="noopener">Diffusion-DRF: Free, Rich, and Differentiable Reward for Video Diffusion Fine-Tuning</a></div>
+          <div class="authors"><span class="me">Yifan Wang</span>, Yanyu Li, Gordon Guocheng Qian, Sergey Tulyakov, Yun Fu, Anil Kag</div>
+          <div class="actions">
+            <a href="https://arxiv.org/abs/2601.04153" target="_blank" rel="noopener">arXiv</a>
+            <a href="https://arxiv.org/pdf/2601.04153" target="_blank" rel="noopener">PDF</a>
+            <a href="https://snap-research.github.io/diffusion-drf/" target="_blank" rel="noopener">Project page</a>
           </div>
-        </div>
-        <div class="item">
-          <div><b>GmNet: Revisiting Gating Mechanisms From A Frequency View</b></div>
-          <div class="meta"><b>Yifan Wang</b>, Xu Ma, Yitian Zhang, Yizhou Wang, Zhongruo Wang, Sung-Cheol Kim, Vahid Mirjalili, Vidya Renganathan, Yun Fu</div>
-          <div><i>ICLR 2026</i></div>
-          <div class="meta">
-            <a href="https://openreview.net/forum?id=dkfEwHobXq" target="_blank" rel="noopener">PDF</a> ·
-            <a href="#" target="_blank" rel="noopener">Code</a> 
+        </article>
+
+        <article class="pub">
+          <div class="venue-row"><span class="badge">ICLR 2026</span></div>
+          <div class="title"><a href="https://openreview.net/forum?id=dkfEwHobXq" target="_blank" rel="noopener">GmNet: Revisiting Gating Mechanisms From A Frequency View</a></div>
+          <div class="authors"><span class="me">Yifan Wang</span>, Xu Ma, Yitian Zhang, Yizhou Wang, Zhongruo Wang, Sung-Cheol Kim, Vahid Mirjalili, Vidya Renganathan, Yun Fu</div>
+          <div class="actions">
+            <a href="https://openreview.net/forum?id=dkfEwHobXq" target="_blank" rel="noopener">OpenReview</a>
+            <a href="https://arxiv.org/abs/2503.22841" target="_blank" rel="noopener">arXiv</a>
+            <a href="https://github.com/YFWang1999/GmNet" target="_blank" rel="noopener">Code</a>
           </div>
-        </div>
-        <div class="item">
-          <div><b>UnAC: Adaptive Visual Prompting with Abstraction and Stepwise Checking for Complex Multimodal Reasoning</b></div>
-          <div class="meta"><b>Yifan Wang</b>, Yun Fu</div>
-          <div><i>ACL 2026 Findings</i></div>
-          <div class="meta">
-            <a href="#" target="_blank" rel="noopener">PDF</a>
+        </article>
+
+        <article class="pub">
+          <div class="venue-row"><span class="badge">ACL 2026</span> Findings</div>
+          <div class="title"><a href="https://aclanthology.org/2026.findings-acl.1196/" target="_blank" rel="noopener">UnAC: Adaptive Visual Prompting with Abstraction and Stepwise Checking for Complex Multimodal Reasoning</a></div>
+          <div class="authors"><span class="me">Yifan Wang</span>, Yun Fu</div>
+          <div class="actions">
+            <a href="https://aclanthology.org/2026.findings-acl.1196/" target="_blank" rel="noopener">ACL Anthology</a>
+            <a href="https://arxiv.org/abs/2605.03950" target="_blank" rel="noopener">arXiv</a>
           </div>
-        </div>
-        <div class="item">
-          <div><b>Hyperbolic Few-shot Open-set Recognition via Prototype-based Feature Reconstruction</b></div>
-          <div class="meta"><b>Yifan Wang</b>, Yue Bai, Yi Xu, Yun Fu</div>
-          <div><i>ICDM 2026</i></div>
-          <div class="meta">
-            <a href="#" target="_blank" rel="noopener">PDF</a>
+        </article>
+
+        <article class="pub">
+          <div class="venue-row"><span class="badge">ICDM 2026</span></div>
+          <div class="title">Hyperbolic Few-shot Open-set Recognition via Prototype-based Feature Reconstruction</div>
+          <div class="authors"><span class="me">Yifan Wang</span>, Yue Bai, Yi Xu, Yun Fu</div>
+          <div class="actions">
+            <span>PDF coming soon</span>
           </div>
-        </div>
-        <div class="item">
-          <div><b>Exploiting inter-sample affinity for knowability-aware universal domain adaptation</b></div>
-          <div class="meta"><b>Yifan Wang</b>, Lin Zhang, Ran Song, Hongliang Li, Paul L Rosin, Wei Zhang</div>
-          <div><i>International Journal of Computer Vision</i></div>
-          <div class="meta">
-            <a href="https://link.springer.com/article/10.1007/s11263-023-01955-y" target="_blank" rel="noopener">PDF</a> ·
+        </article>
+
+        <article class="pub">
+          <div class="venue-row"><span class="badge journal">IJCV</span> International Journal of Computer Vision · 2024</div>
+          <div class="title"><a href="https://link.springer.com/article/10.1007/s11263-023-01955-y" target="_blank" rel="noopener">Exploiting Inter-sample Affinity for Knowability-aware Universal Domain Adaptation</a></div>
+          <div class="authors"><span class="me">Yifan Wang</span>, Lin Zhang, Ran Song, Hongliang Li, Paul L. Rosin, Wei Zhang</div>
+          <div class="actions">
+            <a href="https://link.springer.com/article/10.1007/s11263-023-01955-y" target="_blank" rel="noopener">Paper</a>
             <a href="https://github.com/YFWang1999/Inter-sample-affinity-UniDA" target="_blank" rel="noopener">Code</a>
           </div>
-        </div>
-        
-        <div class="item">
-          <div><b>Neighborhood-aware mutual information maximization for source-free domain adaptation</b></div>
-          <div class="meta">Lin Zhang, <b>Yifan Wang</b>, Ran Song, Mingxin Zhang, Xiaolei Li, Wei Zhang</div>
-          <div><i>IEEE Transactions on Multimedia</i></div>
-          <div class="meta">
-            <a href="https://link.springer.com/article/10.1007/s11263-023-01955-y" target="_blank" rel="noopener">PDF</a>
-          </div>
-        </div>
+        </article>
 
-        <div class="item">
-          <div><b>Dual-graph contrastive learning for unsupervised person reidentification</b></div>
-          <div class="meta">Lin Zhang, Ran Song, <b>Yifan Wang</b>, Qian Zhang, Wei Zhang</div>
-          <div><i>IEEE Transactions on Cognitive and Developmental Systems</i></div>
-          <div class="meta">
-            <a href="https://link.springer.com/article/10.1007/s11263-023-01955-y" target="_blank" rel="noopener">PDF</a>
+        <article class="pub">
+          <div class="venue-row"><span class="badge journal">IEEE TMM</span> IEEE Transactions on Multimedia · 2024</div>
+          <div class="title"><a href="https://doi.org/10.1109/TMM.2024.3394971" target="_blank" rel="noopener">Neighborhood-aware Mutual Information Maximization for Source-free Domain Adaptation</a></div>
+          <div class="authors">Lin Zhang, <span class="me">Yifan Wang</span>, Ran Song, Mingxin Zhang, Xiaolei Li, Wei Zhang</div>
+          <div class="actions">
+            <a href="https://doi.org/10.1109/TMM.2024.3394971" target="_blank" rel="noopener">Paper</a>
           </div>
-        </div>
+        </article>
+
+        <article class="pub">
+          <div class="venue-row"><span class="badge journal">IEEE TCDS</span> IEEE Transactions on Cognitive and Developmental Systems · 2024</div>
+          <div class="title"><a href="https://doi.org/10.1109/TCDS.2023.3348766" target="_blank" rel="noopener">Dual-graph Contrastive Learning for Unsupervised Person Re-identification</a></div>
+          <div class="authors">Lin Zhang, Ran Song, <span class="me">Yifan Wang</span>, Qian Zhang, Wei Zhang</div>
+          <div class="actions">
+            <a href="https://doi.org/10.1109/TCDS.2023.3348766" target="_blank" rel="noopener">Paper</a>
+          </div>
+        </article>
+
       </div>
-      <!-- <p class="meta" style="margin-top:10px;color:var(--muted);">
-        Tip: You can keep this section synced with Google Scholar manually, or switch to a template that auto-builds from BibTeX.
-      </p> -->
     </section>
 
     <section id="experience">
       <h2>Experience</h2>
-      <div class="grid">
-        <div class="item">
-          <div><b>Research Intern</b> · Creative Vision @ Snap Inc. </div>
-          <div class="meta">May 2025 – Now · Santa Monica, CA, USA</div>
-          <ul>
-            <li>Exploring differentiable reward finetuning for video diffusion model.</li>
-            <!-- <li>Key methods: Diffusion-DRF.</li> -->
-          </ul>
-        </div>
-
-        <div class="item">
-          <div><b>Research Assistant</b> · Smile Lab @ NEU</div>
-          <div class="meta">2023 – Present</div>
-          <!-- <ul>
-            <li>What you do + outcomes.</li>
-          </ul> -->
-        </div>
-      </div>
-    </section>
-<!-- 
-    <section id="projects">
-      <h2>Selected Projects</h2>
-      <div class="grid">
-        <div class="item">
-          <div><b>Project Name</b></div>
-          <div class="meta">Short description. <a href="#" target="_blank" rel="noopener">Repo</a></div>
-          <ul>
-            <li>What problem it solves.</li>
-            <li>What’s novel / your contribution.</li>
-          </ul>
-        </div>
-      </div>
-    </section> -->
-<!-- 
-    <section id="teaching">
-      <h2>Teaching & Service</h2>
-      <ul>
-        <li>Teaching Assistant, Course Name, Institution (Term)</li>
-        <li>Volunteer / Mentoring / Reviewing</li>
+      <ul class="timeline">
+        <li>
+          <div class="org">Research Intern <span>· Creative Vision, Snap Inc.</span></div>
+          <div class="when">May 2025 – Present · Santa Monica, CA</div>
+          <p>Differentiable reward fine-tuning and token-level RL for video diffusion models (Diffusion-DRF, TVRL).</p>
+        </li>
+        <li>
+          <div class="org">PhD Student / Research Assistant <span>· SMILE Lab, Northeastern University</span></div>
+          <div class="when">Sep 2023 – Present · Boston, MA</div>
+          <p>Advised by Prof. Yun Raymond Fu. Efficient architectures, multimodal reasoning, and generative-model alignment.</p>
+        </li>
+        <li>
+          <div class="org">B.S. in Mathematics and Applied Mathematics <span>· Shandong University</span></div>
+          <div class="when">Jinan, China</div>
+        </li>
       </ul>
-    </section> -->
+    </section>
 
     <footer>
-      © <span id="y"></span> Yifan Wang · Last updated: <span id="d"></span>
+      <span>© <span id="y"></span> Yifan Wang</span>
+      <span>Last updated <span id="d"></span></span>
     </footer>
   </div>
 
   <script>
-    const now = new Date();
-    document.getElementById("y").textContent = now.getFullYear();
-    document.getElementById("d").textContent = now.toISOString().slice(0,10);
+    // footer dates (last-updated is the build date baked in below; falls back to today)
+    document.getElementById("y").textContent = new Date().getFullYear();
+    document.getElementById("d").textContent = document.lastModified
+      ? new Date(document.lastModified).toISOString().slice(0, 10)
+      : new Date().toISOString().slice(0, 10);
+
+    // theme toggle: light / dark, remembered per browser
+    const root = document.documentElement;
+    try { const t = localStorage.getItem("theme"); if (t) root.dataset.theme = t; } catch (e) {}
+    document.getElementById("theme").addEventListener("click", () => {
+      const sysDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const cur = root.dataset.theme || (sysDark ? "dark" : "light");
+      const next = cur === "dark" ? "light" : "dark";
+      root.dataset.theme = next;
+      try { localStorage.setItem("theme", next); } catch (e) {}
+    });
+
+    // older news
+    const list = document.getElementById("newslist"), btn = document.getElementById("newstoggle");
+    btn.addEventListener("click", () => {
+      const open = list.classList.toggle("open");
+      btn.textContent = open ? "Show fewer ↑" : "Show older news ↓";
+    });
   </script>
 </body>
 </html>
